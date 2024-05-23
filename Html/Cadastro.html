@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cadastro.css">
+</head>
+<body>
+    <div class="ContainerCentral">
+        <div class="ContainerMedio">
+            <div class="CaixaLogin">
+                <div class="Conteudo1">
+                    <div class="BemVindoLogin">
+                        <h1>Bem Vindo!</h1>
+                    </div>
+                    <img src="../Imagens/LogoMiniTeclado.png" alt="">
+                    <h4>Teclas Sentimentais</h4>
+                    <p>Um sentimento em cada Tecla.</p>
+                </div>
+                <div class="Conteudo2">
+                       <div class="TextoConteudo2">
+                        <div class="ContemConta"><h1>Já contém uma conta?</h1></div>
+                            <h1 style="display: flex; justify-content: flex-start; font-size: 40px; align-self: flex-start;">Faça Login</h1>
+                       </div>
+                       <a href="./Login.html"><button class="Bnt">Entrar</button></a>  
+                </div>
+
+            </div>
+
+            <div class="CaixaCadastro">
+                <div class="ConteudoCadastro">
+                    <h1>Cadastro</h1>
+                        <form class="Formulario">
+                            <div class="CaixaInput1">
+                                <input class="inputs1" required placeholder="Nome Completo" type="text" id="input_NomeCompleto">
+                                <input class="inputs1" required placeholder="Email" type="email" id="input_Email">
+                                <input class="inputs1" required placeholder="Confirmar Email" type="email" id="input_Email">
+                            </div>
+                            <div class="CaixaInput2">
+                                <input class="inputs2" required placeholder="telefone" type="number" id="input_Telefone">
+                                <input class="inputs2" required placeholder="Senha" type="password" id="input_Senha">
+                                <input class="inputs2" required placeholder="Confirma Senha" type="password" id="input_ConfirmaSenha">
+                            </div>
+                        </form>  
+                          
+                    <button class="Botao">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+        function Cadastro() {
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var telefone = input_telefone.value;
+        var senha = input_senha.value;
+        var Confirmar = input_SenhaConfirmacao.value;
+
+
+        if (nome != '' && email != '' && senha != '' && telefone != '' && Confirmar != '') {
+
+            var VerficacaoEmail = email.indexOf('@')
+
+            if (nome.length <= 2) {
+                alert("O nome está muito curto")
+            } else if (VerficacaoEmail > 0) {
+                alert("O email precisa conter o @")
+            } else if (senha.length < 6) {
+                alert("A senha precisa conter no minimo 6 caracteres")
+            } else if (telefone.length < 12) {
+                alert("A quantidade de números está incorreta deve contér 12 números")
+            } else if (senha != Confirmar) {
+                alert("As senhas precisam ser idênticas")
+            } else {
+                alert("Cadastro feito com sucesso")
+            }
+
+            var senhaOriginal = senha;
+            var chave = Confirmar;
+
+            var senhaCriptografada = CryptoJS.AES.encrypt(senhaOriginal, chave);
+            var senhaDescriptografada = CryptoJS.AES.decrypt(senhaCriptografada.toString(), chave);
+
+            console.log("Senha criptografada: " + senhaCriptografada.toString());
+            console.log("Senha descriptografada: " + senhaDescriptografada.toString(CryptoJS.enc.Utf8));
+            // Guarde o `hash` na sua base de dados ou onde for necessário
+
+
+            console.log(`${nome}`)
+            console.log(`${email}`)
+            console.log(`${telefone}`)
+            console.log(`${senha}`)
+            console.log(`${Confirmar}`)
+
+        }
+        else if (nome == '') {
+            alert("Campo Nome vazio, por favor preencha")
+        }
+        else if (email == '') {
+            alert("Campo Email vazio, por favor preencha")
+        }
+        else if (telefone == '') {
+            alert("Campo Telefone vazio, por favor preencha")
+        }
+        else if (senha == '') {
+            alert("Campo Senha vazio, por favor preencha")
+        }
+        else if (Confirmar == '') {
+            alert("Campo Confirma Senha vazio, por favor preencha")
+        }
+    }
+</script>
+</html>

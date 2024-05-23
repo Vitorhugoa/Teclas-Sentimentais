@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="MaeDeTodos12">
+        <div class="PaiDeTodos12">
+            <img class="imagem-galeria" src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+        <div class="PaiDeTodos12">
+            <img  src="./Imagens/LogoTeclasSentimentasSemFundo.png" alt="">
+        </div>
+       
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imagem = document.querySelector('.imagem-galeria');
+            const initialScale = 1;
+            const maxScale = 4.5; // escala máxima permitida
+            const minScale = 0.5; // escala mínima permitida
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                // Definindo a escala baseada na posição do scroll
+                let scale = initialScale + (scrollY / window.innerHeight) * (maxScale - minScale);
+                // Limitando a escala ao valor máximo e mínimo
+                scale = Math.min(maxScale, Math.max(minScale, scale));
+                imagem.style.transform = `scale(${scale})`;
+            });
+        });
+    </script>
+</body>
+
+</html>

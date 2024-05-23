@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Piano Game</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+
+	<body>
+        <!-- Seção principal que envolve o conteúdo -->
+        <section id="wrap">
+          <!-- Cabeçalho da página -->
+          <header>
+            <!-- Título principal -->
+            <h1>JS Piano</h1>
+            <!-- Subtítulo com instruções -->
+            <h2>Use your keyboard. Hover for hints.</h2>
+          </header>
+          
+          <!-- Seção principal do piano -->
+          <section id="main">
+            <!-- Div para mostrar a nota atualmente tocada -->
+            <div class="nowplaying"></div>
+            <!-- Contêiner para as teclas do piano -->
+            <div class="keys">
+              <!-- Cada div representa uma tecla do piano, com data-key para associar ao código da tecla e data-note para a nota musical -->
+              <div data-key="65" class="key" data-note="C">
+                <!-- Dica mostrando a tecla do teclado associada -->
+                <span class="hints">A</span>
+              </div>
+              <div data-key="87" class="key sharp" data-note="C#">
+                <span class="hints">W</span>
+              </div>
+              <div data-key="83" class="key" data-note="D">
+                <span class="hints">S</span>
+              </div>
+              <div data-key="69" class="key sharp" data-note="D#">
+                <span class="hints">E</span>
+              </div>
+              <div data-key="68" class="key" data-note="E">
+                <span class="hints">D</span>
+              </div>
+              <div data-key="70" class="key" data-note="F">
+                <span class="hints">F</span>
+              </div>
+              <div data-key="84" class="key sharp" data-note="F#">
+                <span class="hints">T</span>
+              </div>
+              <div data-key="71" class="key" data-note="G">
+                <span class="hints">G</span>
+              </div>
+              <div data-key="89" class="key sharp" data-note="G#">
+                <span class="hints">Y</span>
+              </div>
+              <div data-key="72" class="key" data-note="A">
+                <span class="hints">H</span>
+              </div>
+              <div data-key="85" class="key sharp" data-note="A#">
+                <span class="hints">U</span>
+              </div>
+              <div data-key="74" class="key" data-note="B">
+                <span class="hints">J</span>
+              </div>
+              <div data-key="75" class="key" data-note="C">
+                <span class="hints">K</span>
+              </div>
+              <div data-key="79" class="key sharp" data-note="C#">
+                <span class="hints">O</span>
+              </div>
+              <div data-key="76" class="key" data-note="D">
+                <span class="hints">L</span>
+              </div>
+              <div data-key="80" class="key sharp" data-note="D#">
+                <span class="hints">P</span>
+              </div>
+              <div data-key="186" class="key" data-note="E">
+                <span class="hints">;</span>
+              </div>
+            </div>
+      
+            <!-- Elementos <audio> para cada som de tecla, associado ao data-key correspondente -->
+            <audio data-key="65" src="./áudios/Nota-C-065-040.wav"></audio>
+            <audio data-key="87" src="./áudios/Nota-C#-87-041.wav"></audio>
+            <audio data-key="83" src="./áudios/Nota-D-83-042.wav"></audio>
+            <audio data-key="69" src="./áudios/Nota-D#-69-043.wav"></audio>
+            <audio data-key="68" src="./áudios/Nota-E-68-044.wav"></audio>
+            <audio data-key="70" src="./áudios/Nota-F-70-045.wav"></audio>
+            <audio data-key="84" src="./áudios/Nota-F#-84-046.wav"></audio>
+            <audio data-key="71" src="./áudios/Nota-G-71-047.wav"></audio>
+            <audio data-key="89" src="./áudios/Nota-G#-89-048.wav"></audio>
+            <audio data-key="72" src="./áudios/Nota-A-72-049.wav"></audio>
+            <audio data-key="85" src="./áudios/Nota-A#-85-050.wav"></audio>
+            <audio data-key="74" src="./áudios/Nota-B-74-051.wav"></audio>
+            <audio data-key="75" src="./áudios/Nota-C-75-052.wav"></audio>
+            <audio data-key="79" src="./áudios/Nota-C#-79-053.wav"></audio>
+            <audio data-key="76" src="./áudios/Nota-D-76-054.wav"></audio>
+            <audio data-key="80" src="./áudios/Nota-D#-80-055.wav"></audio>
+            <audio data-key="186" src="./áudios/Nota-E-100-056.wav"></audio>
+          </section>
+        </section>
+      
+        <!-- Vídeo de fundo que é reproduzido automaticamente, sem som, em loop
+        <video playsinline autoplay muted loop id="bgvid" poster="http://carolinegabriel.com/demo/js-keyboard/video/bg.jpg">
+          <source src="http://carolinegabriel.com/demo/js-keyboard/video/bg.mp4" type="video/mp4">
+        </video> -->
+
+        <button onclick="Jogar()">Jogar</button>
+      </body>
+      
+
+
+	<script>
+    var NotasPressionadas = [];
+    var Posicao = 0;
+     // Seleciona todos os elementos com a classe "key" e armazena em uma NodeList
+const keys = document.querySelectorAll(".key"), 
+  // Seleciona o primeiro elemento com a classe "nowplaying"
+  note = document.querySelector(".nowplaying"), 
+  // Seleciona todos os elementos com a classe "hints" e armazena em uma NodeList
+  hints = document.querySelectorAll(".hints");
+
+// Função para tocar a nota correspondente à tecla pressionada
+function playNote(e) {
+  // Seleciona o elemento <audio> com o atributo data-key correspondente ao código da tecla pressionada
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`), 
+    // Seleciona o elemento com a classe "key" e o atributo data-key correspondente ao código da tecla pressionada
+    key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+  // Se não houver um elemento "key" correspondente, termina a função
+  if (!key) return;
+
+  // Obtém o valor do atributo data-note do elemento "key"
+  const keyNote = key.getAttribute("data-note");
+    NotasPressionadas.push(keyNote)
+    Posicao++
+
+  // Adiciona a classe "playing" ao elemento "key" para aplicar efeitos visuais
+  key.classList.add("playing");
+  // Define o conteúdo HTML do elemento "note" com a nota correspondente
+  note.innerHTML = keyNote;
+  // Reseta o tempo atual do áudio para o início
+  audio.currentTime = 0;
+  // Reproduz o áudio
+  audio.play();
+}
+
+// Função para remover a classe "playing" após a transição CSS terminar
+function removeTransition(e) {
+  // Se a propriedade CSS que terminou a transição não for "transform", termina a função
+  if (e.propertyName !== "transform") return;
+  // Remove a classe "playing" do elemento que disparou o evento
+  this.classList.remove("playing");
+}
+
+// Função para definir um atraso na transição de dicas
+function hintsOn(e, index) {
+  // Define o atributo style do elemento "hints" para adicionar um atraso de transição
+  e.setAttribute("style", "transition-delay:" + index * 50 + "ms");
+}
+
+// Aplica a função hintsOn a cada elemento da NodeList "hints"
+hints.forEach(hintsOn);
+
+// Adiciona um event listener a cada elemento da NodeList "keys" para remover a classe "playing" após a transição CSS terminar
+keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+// Adiciona um event listener ao objeto "window" para chamar a função playNote quando uma tecla é pressionada
+window.addEventListener("keydown", playNote);
+
+
+
+
+
+// Modo de Jogo 
+
+  function Jogar(){
+    var NotaAtual = NotasPressionadas[Posicao]
+
+    
+  }
+
+
+    </script>
+
+</html>

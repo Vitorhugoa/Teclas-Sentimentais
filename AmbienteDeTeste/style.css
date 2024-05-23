@@ -1,0 +1,160 @@
+/* Define o estilo básico para o elemento <html> */
+html  {
+    background: #000; /* Define o fundo como preto */
+    font-family: 'Noto Serif', serif; /* Define a fonte como 'Noto Serif' */
+    -webkit-font-smoothing: antialiased; /* Suaviza a renderização da fonte no WebKit */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para o vídeo de fundo com id "bgvid" */
+video#bgvid { 
+    position: fixed; /* Fixa o vídeo na tela */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    min-width: 100%; /* Define largura mínima para cobrir 100% da tela */
+    min-height: 100%; /* Define altura mínima para cobrir 100% da tela */
+    width: auto; /* Define largura automática */
+    height: auto; /* Define altura automática */
+    z-index: -100; /* Coloca o vídeo atrás de outros elementos */
+    transform: translateX(-50%) translateY(-50%); /* Ajusta a posição para centralização */
+    background-size: cover; /* Cobre todo o fundo */
+}
+
+/* Estilos para o elemento <header> */
+header {
+    position: relative; /* Define a posição relativa */
+    margin: 30px 0; /* Define a margem superior e inferior */
+}
+
+/* Adiciona uma linha decorativa após o <header> */
+header:after {
+    content: ''; /* Conteúdo vazio */
+    width: 460px; /* Define a largura */
+    height: 15px; /* Define a altura */
+    background: url(images/intro-div.svg) no-repeat center; /* Define uma imagem de fundo */
+    display: inline-block; /* Define o display inline-block */
+    text-align: center; /* Centraliza o texto */
+    background-size: 70%; /* Ajusta o tamanho da imagem de fundo */
+}
+
+/* Estilos para o elemento <h1> */
+h1 {
+    color: #fff; /* Define a cor do texto como branco */
+    font-size: 50px; /* Define o tamanho da fonte */
+    font-weight: 400; /* Define o peso da fonte */
+    letter-spacing: 0.18em; /* Define o espaçamento entre letras */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    margin: 0; /* Remove as margens */
+}
+
+/* Estilos para o elemento <h2> */
+h2 {
+    color: #fff; /* Define a cor do texto como branco */
+    font-size: 24px; /* Define o tamanho da fonte */
+    font-style: italic; /* Define o estilo da fonte como itálico */
+    font-weight: 400; /* Define o peso da fonte */
+    margin: 0 0 30px; /* Remove a margem superior e define a margem inferior */
+}
+
+/* Estilos para o elemento com a classe "nowplaying" */
+.nowplaying {
+    font-size: 120px; /* Define o tamanho da fonte */
+    line-height: 1; /* Define a altura da linha */
+    color: #eee; /* Define a cor do texto */
+    text-shadow: 0 0 5rem #028ae9; /* Define a sombra do texto */
+    transition: all .07s ease; /* Define a transição suave */
+    min-height: 120px; /* Define a altura mínima */
+}
+
+/* Estilos para o contêiner de teclas */
+.keys {
+    display: block; /* Define o display como block */
+    width: 100%; /* Define a largura como 100% */
+    height: 350px; /* Define a altura */
+    max-width: 880px; /* Define a largura máxima */
+    position: relative; /* Define a posição relativa */
+    margin: 40px auto 0; /* Define a margem superior e centraliza horizontalmente */
+    cursor: none; /* Remove o cursor */
+}
+
+/* Estilos para o elemento com a classe "key" */
+.key {
+    position: relative; /* Define a posição relativa */
+    border: 4px solid black; /* Define a borda preta */
+    border-radius: .5rem; /* Define bordas arredondadas */
+    transition: all .07s ease; /* Define uma transição suave */
+    display: block; /* Define o display como block */
+    box-sizing: border-box; /* Inclui bordas e padding no tamanho total */
+    z-index: 2; /* Define o z-index */
+}
+
+/* Estilos para as teclas não sustenidas */
+.key:not(.sharp) {
+    float: left; /* Alinha à esquerda */
+    width: 10%; /* Define a largura */
+    height: 100%; /* Define a altura */
+    background: rgba(255, 255, 255, .8); /* Define o fundo branco semitransparente */
+}
+
+/* Estilos para as teclas sustenidas */
+.key.sharp {
+    position: absolute; /* Define a posição absoluta */
+    width: 6%; /* Define a largura */
+    height: 60%; /* Define a altura */
+    background: #000; /* Define o fundo preto */
+    color: #eee; /* Define a cor do texto */
+    top: 0; /* Alinha ao topo */
+    z-index: 3; /* Define o z-index */
+}
+
+/* Posições específicas para teclas sustenidas com base no data-key */
+.key[data-key="87"] {
+    left: 7%;
+}
+
+.key[data-key="69"] {
+    left: 17%;
+}
+
+.key[data-key="84"]  {
+    left: 37%;
+}
+
+.key[data-key="89"] {
+    left: 47%;
+}
+
+.key[data-key="85"] {
+    left: 57%;    
+}
+
+.key[data-key="79"] {
+    left: 77%;    
+}
+
+.key[data-key="80"] {
+    left: 87%;    
+}
+
+/* Estilos para a classe "playing" quando a tecla é pressionada */
+.playing {
+    transform: scale(.95); /* Reduz levemente o tamanho */
+    border-color: #028ae9; /* Altera a cor da borda */
+    box-shadow: 0 0 1rem #028ae9; /* Adiciona uma sombra */
+}
+
+/* Estilos para o elemento com a classe "hints" */
+.hints {
+    display: block; /* Define o display como block */
+    width: 100%; /* Define a largura como 100% */
+    opacity: 0; /* Define a opacidade como 0 */
+    position: absolute; /* Define a posição absoluta */
+    bottom: 7px; /* Alinha ao fundo */
+    transition: opacity .3s ease-out; /* Define uma transição suave para a opacidade */
+    font-size: 20px; /* Define o tamanho da fonte */
+}
+
+/* Estilos para exibir dicas quando o contêiner "keys" é sobreposto */
+.keys:hover .hints {
+    opacity: 1; /* Define a opacidade como 1 */
+}

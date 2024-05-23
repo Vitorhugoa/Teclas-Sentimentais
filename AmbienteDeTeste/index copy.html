@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Mask Imagem</title>
+<style>
+    body {
+        margin: 0;
+        height: 2000px; /* Apenas para criar espaço para rolar */
+        background-image: url('./Imagens/MusicaTradicional.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .mask-imagem {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        pointer-events: none; /* Permite que eventos de clique passem pela máscara */
+        transition: all 0.5s;
+        opacity: 0; /* Começa invisível */
+    }
+</style>
+</head>
+<body>
+
+<!-- Máscara -->
+<div class="mask-imagem"></div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var mask = document.querySelector('.mask-imagem');
+        var maxScroll = 500; // Ajuste isso para alterar a posição em que a máscara cresce
+        var maxOpacity = 0.5; // Opacidade máxima da máscara
+
+        // Calcula a altura e a largura da máscara com base na posição de rolagem
+        var width = (scrollPosition / maxScroll) * 100;
+        var height = (scrollPosition / maxScroll) * 100;
+        // Garante que a altura e a largura não sejam maiores que 100%
+        width = Math.min(100, width);
+        height = Math.min(100, height);
+        // Define a altura e a largura da máscara
+        mask.style.width = width + '%';
+        mask.style.height = height + 'vh';
+
+        // Calcula a opacidade da imagem de fundo com base na posição de rolagem
+        var opacity = 1 - (scrollPosition / maxScroll) * maxOpacity;
+        // Garante que a opacidade não seja menor que 0
+        opacity = Math.max(0, opacity);
+        // Define a opacidade da imagem de fundo
+        document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, ' + opacity + '), rgba(0, 0, 0, ' + opacity + ')), url("sua-imagem.jpg")';
+        // Você pode ajustar a lógica acima para atender às suas necessidades exatas
+    });
+</script>
+
+</body>
+</html>

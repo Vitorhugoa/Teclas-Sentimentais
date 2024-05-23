@@ -1,35 +1,130 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
- }
-/* Página Principal */ 
+    overflow-x: hidden;
+    background-color: gray;
+    /*Gambiarra para remover o scroll */
+}
 
-.MaeDeTodos1{
+html {
+    scroll-behavior: smooth;
+    /* Adiciona rolagem suave em todo o documento */
+}
+
+
+/* Página Principal */
+
+.MaeDeTodos1 {
     height: 100%;
     width: 100%;
 }
 
-.PaiDeTodos1{
+.PaiDeTodos1 {
     display: flex;
     height: 958px;
     background-image: url(../Imagens/TelaPrincipal1.png);
     background-size: cover;
     background-repeat: round;
 }
-.FilhoDoMeio{
+
+.FilhoDoMeio {
     display: flex;
-    background-color: #96999e6e;
+    background-color: #96999e4a;
     height: 100%;
     width: 100%;
+    z-index: 1;
     align-items: center;
     justify-content: center;
 }
-.ImagemTela1{
+
+.ImagemTela1 {
     display: flex;
     width: 960px;
     height: 500px;
 }
+
+/* Nuvens da pagina principal  */
+
+.central {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+
+    transform: scaleX(-1);
+    transform: scaleY(-1);
+}
+
+
+
+/* CSS NUVENS CONTÊINER PAI */
+.nuvens {
+    position: absolute;
+    width: 1000px !important;
+    bottom: 0;
+    opacity: 20%;
+    animation: animate 30s linear infinite;
+}
+
+.nuvens2 {
+    position: absolute;
+    width: 1000px !important;
+    bottom: 0;
+    opacity: 20%;
+    animation: animate 25s linear infinite;
+}
+
+.nuvens3 {
+    position: absolute;
+    width: 1000px !important;
+    bottom: 0;
+    opacity: 20%;
+    animation: animate 20s linear infinite;
+}
+
+.nuvens4 {
+    position: absolute;
+    width: 1000px !important;
+    bottom: 0;
+    opacity: 20%;
+    animation: animate 15s linear infinite;
+}
+
+.nuvens5 {
+    position: absolute;
+    width: 1000px !important;
+    bottom: 0;
+    opacity: 20%;
+    animation: animate 10s linear infinite;
+}
+
+
+
+@keyframes animate {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 /* NavBar */
+#navbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    position: sticky;
+    background-color: #a89d97a3;
+    z-index: 10;
+}
+
 #navbar ul {
 
     list-style: none;
@@ -42,35 +137,33 @@ body{
 #navbar li {
     margin-right: 30px;
     float: left;
+    color: white;
 }
 
 #navbar a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     box-shadow: 15px;
+    color: white;
 }
+
 #navbar .fixed {
     position: sticky;
     top: 0%;
     left: 0%;
 
 }
-#navbar{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    position: sticky;
-}
 
-.slogan{
+
+
+.slogan {
     height: 50px;
     width: 50px;
 }
 
 
 /* Tela Inicio */
-.MaeDeTodos{
+.MaeDeTodos {
     display: flex;
     height: 100%;
     width: 100%;
@@ -78,22 +171,25 @@ body{
     background-size: cover;
     background-repeat: round;
 }
-.PaiDeTodos{
+
+.PaiDeTodos {
     display: flex;
     align-items: center;
-    background-color: #96999e4a;
+    background-color: #96999e73;
     justify-content: center;
     height: 938px;
     width: 100%;
 }
-.FilhoDoMeio1{
+
+.FilhoDoMeio1 {
     display: flex;
     text-align: center;
     font-size: 40px;
     width: 1000px;
 }
+
 .FilhoDoMeio1 p {
-    color: white;
+    color: black;
 }
 
 /* Depoimentos */
@@ -106,39 +202,102 @@ body{
 
 .PaiDeTodos12 {
     display: flex;
-    height: 880px;
+    height: 1500px;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #353535;
 
 }
-.ConteudoDepoimentos{
+
+.ConteudoDepoimentos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.ConteudoDepoimentos h1{
+
+.ConteudoDepoimentos h1 {
     font-size: 50px;
+    color: white;
 }
 
-.ConteudoDepoimentos p{
+.ConteudoDepoimentos p {
     font-size: 35px;
     width: 85%;
+    color: white;
 }
 
-.swiper {
+/* Slideshow container */
+    .slideshow-container {
+        /* max-width: 1000px; */
+        position: relative;
+        /* margin: auto; */
+        display: flex;
+        flex-direction: row;
+        /* align-content: center; */
+        /* justify-content: center; */
+        align-items: center;
+        height: 107vh;
+        width: 69%;
+
+}
+
+/* Esconda os vídeos por padrão */
+.mySlides {
+    display: none;
+}
+
+
+/* Botões de navegação */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    /* top: 50%; */
+    /* width: auto; */
+    /* margin-top: -22px; */
+    padding: 16px;
+    color: rgb(0 0 0);
+    font-weight: bold;
+    font-size: 88px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Posicione o botão "next" à direita */
+.next {
+    /* right: 0; */
+    border-radius: 3px 0 0 3px;
+}
+
+/* Texto da legenda */
+.text {
+    color: #000000;
+    font-size: 20px;
+    /* padding: 8px 12px; */
+    /* position: absolute; */
+    /* bottom: 8px; */
+    width: 100%;
+    text-align: center;
+}
+
+.ControlesDeVideo {
     display: flex;
-    width: 600px;
-    height: 300px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 880px;
 }
 
 /* ImagemParada no meio */
-.MeioPagina{
+.MeioPagina {
     display: flex;
     height: 100%;
     width: 100%;
 }
-.CaixaMaior{
+
+.CaixaMaior {
     display: flex;
     width: 100%;
     background-image: url(../Imagens/TesteProjetoIndividual.jpg);
@@ -147,11 +306,13 @@ body{
     background-position: center;
     background-size: cover;
 }
-.CaixaMedia{
+
+.CaixaMedia {
     display: flex;
     height: 250px;
 }
-.CaixaMenor{
+
+.CaixaMenor {
     display: flex;
     text-align: center;
     font-size: 25px;
@@ -160,12 +321,13 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .CaixaMenor p {
     width: 75%;
 }
 
 /* Tipo de Música */
-.Container1{
+.Container1 {
     display: flex;
     height: 100%;
     width: 100%;
@@ -174,7 +336,7 @@ body{
     background-repeat: round;
 }
 
-.ContainerMedio1{
+.ContainerMedio1 {
     display: flex;
     text-align: center;
     justify-content: space-evenly;
@@ -182,27 +344,31 @@ body{
     flex-direction: column;
     width: inherit;
     height: 880px;
-    background-color:#96999e4a;
+    background-color: #96999e4a;
 
 }
-.ContainerMedio1 h1{
+
+.ContainerMedio1 h1 {
     font-size: 70px;
 }
 
-.ContainerMenor1{
+.ContainerMenor1 {
     display: flex;
     flex-direction: row;
     width: 70%;
     justify-content: space-between;
 }
-.Ordem{
+
+.Ordem {
     display: flex;
     flex-direction: column;
 }
-.Ordem h2{
+
+.Ordem h2 {
     font-size: 50px;
 }
-.ImagemMusica{
+
+.ImagemMusica {
     width: 350px;
     height: 350px;
     border-radius: 30px;
@@ -210,73 +376,90 @@ body{
 
 
 /* SobreMIM */
-.ContainerMaiorSobre{
+.ContainerMaiorSobre {
     display: flex;
     height: 100%;
     width: 100%;
 }
-.ContainerMedioSobre{
+
+.ContainerMedioSobre {
     display: flex;
     height: 880px;
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #353535;
+
 }
-.ContainerMenorSobre{
+
+.ContainerMenorSobre {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
 
 }
-.ContainerMenorSobre img{
+
+.ContainerMenorSobre img {
     width: 480px;
     height: 480px;
 }
+
 .ContainerMenorSobre p {
     width: 780px;
 }
 
-.TextoSobre h1{
+.TextoSobre h1 {
     font-size: 50px;
+    color: white;
 }
 
 .TextoSobre p {
     font-size: 50px;
+    color: white;
 }
-.ContainerMae3{
+
+/* Inspirações na Música */
+.ContainerMae3 {
     display: flex;
     height: 100%;
     width: 100%;
 }
-.ContainerPai3{
+
+.ContainerPai3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 880px;
+    background-color: #353535b5;
 }
-.ContainerPai3 h1{
+
+.ContainerPai3 h1 {
     font-size: 50px;
 }
-.CaixaInspiracao{
+
+.CaixaInspiracao {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 80%;
 }
+
 .ConteudoInspiracao {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
-.ConteudoInspiracao img{
+
+.ConteudoInspiracao img {
     height: 250px;
     width: 250px;
 }
-.ConteudoInspiracao p{
+
+.ConteudoInspiracao p {
     font-size: 35px;
     width: 600px;
 }

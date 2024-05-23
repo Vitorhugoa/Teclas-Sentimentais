@@ -1,0 +1,114 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.CaixaCadastro{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Imagens/fundoLogin.png);
+    background-repeat: round;
+    background-size: cover;
+}
+
+.Formulario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 40%;
+    width: 80%;
+}
+.ConteudoCadastro { 
+    display: flex;
+    height: 40vh;
+    width: 70vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #323234b8;
+    border-radius: 60px;
+    color: white;
+}
+
+.ConteudoTexto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: start;
+}
+.ConteudoCadastro h1{
+    font-size: 50px;
+    margin: 0px;
+}
+
+.ConteudoCadastro p{
+    margin: 0px;
+}
+
+.inputs1{
+    width: 280px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0px;
+    margin: 1px;
+    font-size: large;
+    text-align: left;
+}
+
+.inputs2{
+    width: 170px;
+    height: 40px;
+}
+.CaixaInput1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* align-self: start; */
+    height: 10vh;
+}
+.CaixaInput2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* align-self: start; */
+}
+
+.Botao{
+    height: 50px;
+    width: 250px;
+    border-radius: 30px;
+    font-size: 25px;
+    border: 0px;
+}
+
+.CaixaConteudoGrande{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.ConteudoCadastro h4{
+    font-size: 20px;
+    margin: 0px;
+}
+.ConteudoCadastro a{
+    color: black;
+
+    text-decoration: none;
+}
+
+.Personalizacao{
+    display: flex;
+    height: 7%;
+    justify-content: center;
+    align-items: center;
+    font-size: 58px;
+}

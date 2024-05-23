@@ -20,6 +20,24 @@
 
         <div class="MaeDeTodos1">
             <div class="PaiDeTodos1">
+                <div class="central">
+
+                    <div>
+                        <img class="nuvens" src="../Imagens/nuvens/nuvem1.png" alt="">
+                    </div>
+                    <div>
+                        <img class="nuvens2" src="../Imagens/nuvens/nuvem2.png" alt="">
+                    </div>
+                    <div>
+                        <img class="nuvens3" src="../Imagens/nuvens/nuvem3.png" alt="">
+                    </div>
+                    <div>
+                        <img class="nuvens4" src="../Imagens/nuvens/nuvem4.png" alt="">
+                    </div>
+                    <div>
+                        <img class="nuvens5" src="../Imagens/nuvens/nuvem5.png" alt="">
+                    </div>
+                </div>
                 <div class="FilhoDoMeio">
                     <img class="ImagemTela1" src="../Imagens/LogoTeclasSentimentasSemFundo.png" alt="   ">
                 </div>
@@ -30,13 +48,13 @@
     <nav id="navbar">
         <img class="slogan" src="../Imagens/SloganTS.png" alt="">
         <ul>
-            <li> Home </li>
-            <li> Depoimentos </li>
-            <li> Músicas </li>
-            <li> Sobre Mim </li>
-            <li> Inspirações </li>
-            <li> Contato </li>
-            <li> Login </li>
+            <li><a onclick="scrollToSection('Inicio')" href="#Inicio">Home</a></li>
+            <li><a onclick="scrollToSection('Depoimentos')" href="#Depoimentos">Depoimentos</a></li>
+            <li><a onclick="scrollToSection('TiposDeMusica')" href="#TiposDeMusica">Tipos de Músicas</a></li>
+            <li><a onclick="scrollToSection('Sobremim')" href="#SobreMim"> Sobre Mim </a></li>
+            <li><a onclick="scrollToSection('Inspiracoes')" href="#Inspiracoes"> Inspirações </a></li>
+            <li><a href="">Contato</a></li>
+            <li><a href="./Cadastro.html">Login</a></li>
         </ul>
     </nav>
     <section id="Inicio">
@@ -52,50 +70,111 @@
         </div>
 
     </section>
-        <section id="Depoimentos">
-            <div class="MaeDeTodos12">
-                <div class="PaiDeTodos12">
-                    <div class="ConteudoDepoimentos">
-                        <h1>Depoimentos</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ut possimus voluptas, incidunt eos voluptatibus doloremque minima delectus recusandae architecto inventore deserunt unde. Quia nesciunt nemo deserunt illo voluptatem officiis.</p>
+    <section id="Depoimentos">
+        <div class="MaeDeTodos12">
+            <div class="PaiDeTodos12">
+                <div class="ConteudoDepoimentos">
+                    <h1>Depoimentos</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ut possimus voluptas, incidunt
+                        eos voluptatibus doloremque minima delectus recusandae architecto inventore deserunt unde. Quia
+                        nesciunt nemo deserunt illo voluptatem officiis.</p>
+                </div>
+
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                    <div style="display: flex;">
+                        <a class="prev" onclick="plusSlides(-1)" style="left: -65px;">&#10094;</a>
                     </div>
-                        
-                    <!-- Slider main container -->
-                    <div class="swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
-                            <div class="swiper-slide">Slide 4</div>
-                            <div class="swiper-slide">Slide 5</div>
-                            ...
+                    <!-- Vídeo 1 -->
+                    <div class="mySlides fade">
+                        <video controls>
+                            <source " src=" ../Videos/ACENDEOUTRAVEZ.mp4" type="video/mp4">
+                        </video>
+                        <div class="text">
+                            <h1>Vídeo 1</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, laudantium unde.
+                                Eos exercitationem incidunt commodi illum, eaque quasi eligendi iusto distinctio eum
+                                aspernatur ratione fugiat veniam ipsam repellat corporis iure!</p>
                         </div>
-                        <!-- If we need pagination -->
-                        <div class="swiper-pagination"></div>
-        
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-        
-                        <!-- If we need scrollbar -->
-                        <div class="swiper-scrollbar"></div>
+                    </div>
+
+                    <!-- Vídeo 2 -->
+                    <div class="mySlides fade">
+                        <video controls>
+                            <source style="height: 150px; width: 150px;" src="../Videos/ACENDEOUTRAVEZ.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="text">
+                            <h1>Vídeo 2</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, laudantium unde.
+                                Eos exercitationem incidunt commodi illum, eaque quasi eligendi iusto distinctio eum
+                                aspernatur ratione fugiat veniam ipsam repellat corporis iure!</p>
+                        </div>
+                    </div>
+                    <div class="mySlides fade">
+                        <video controls>
+                            <source style="height: 150px; width: 150px;" src="../Videos/ACENDEOUTRAVEZ.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="text">
+                            <h1>Vídeo 3</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, laudantium unde.
+                                Eos exercitationem incidunt commodi illum, eaque quasi eligendi iusto distinctio eum
+                                aspernatur ratione fugiat veniam ipsam repellat corporis iure!</p>
+                        </div>
+                    </div>
+                    <div class="mySlides fade">
+                        <video controls>
+                            <source style="height: 150px; width: 150px;" src="../Videos/ACENDEOUTRAVEZ.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="text">
+                            <h1>Vídeo 4</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, laudantium unde.
+                                Eos exercitationem incidunt commodi illum, eaque quasi eligendi iusto distinctio eum
+                                aspernatur ratione fugiat veniam ipsam repellat corporis iure!</p>
+                        </div>
+                    </div>
+                    <div class="mySlides fade">
+                        <video controls>
+                            <source style="height: 150px; width: 150px;" src="../Videos/ACENDEOUTRAVEZ.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="text">
+                            <h1>Vídeo 5</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, laudantium unde.
+                                Eos exercitationem incidunt commodi illum, eaque quasi eligendi iusto distinctio eum
+                                aspernatur ratione fugiat veniam ipsam repellat corporis iure!</p>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+
+                    <!-- Adicione mais vídeos conforme necessário -->
+
+
+
+                    <!-- Botoes para poder trocar de video  -->
+                    <div class="ControlesDeVideo">
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="MeioPagina">
-            <div class="CaixaMaior">
-                <div class="CaixaMedia">
-                    <div class="CaixaMenor">
-                        <p>“Minha alma tem o peso da luz. Tem o peso da música. Tem o peso da palavra nunca dita, prestes quem sabe a ser dita. Tem o peso de uma lembrança. Tem o peso de uma saudade. Tem o peso de um olhar. Pesa como pesa uma ausência. E a lágrima que não se chorou. Tem o imaterial peso da solidão no meio de outros.”                                                                
-                        </p>
-                        <p>Autora: Clarice Lispector</p>
-                    </div>
+    </section>
+    <div class="MeioPagina">
+        <div class="CaixaMaior">
+            <div class="CaixaMedia">
+                <div class="CaixaMenor">
+                    <p>“Minha alma tem o peso da luz. Tem o peso da música. Tem o peso da palavra nunca dita, prestes
+                        quem sabe a ser dita. Tem o peso de uma lembrança. Tem o peso de uma saudade. Tem o peso de um
+                        olhar. Pesa como pesa uma ausência. E a lágrima que não se chorou. Tem o imaterial peso da
+                        solidão no meio de outros.”
+                    </p>
+                    <p>Autora: Clarice Lispector</p>
                 </div>
             </div>
         </div>
+    </div>
 
     <section id="TiposDeMusica">
 
@@ -109,11 +188,11 @@
                     </div>
                     <div class="Ordem">
                         <img class="ImagemMusica" src="../Imagens/Opera.jpg" alt="">
-                        <h2>Opera</h2>
+                        <h2>Jazz</h2>
                     </div>
                     <div class="Ordem">
                         <img class="ImagemMusica" src="../Imagens/TesteTradicional.jpg" alt="">
-                        <h2>tradicional</h2>
+                        <h2>Gospel</h2>
                     </div>
                 </div>
             </div>
@@ -144,7 +223,7 @@
             <div class="ContainerPai3">
                 <h1>Inspirações</h1>
                 <div class="CaixaInspiracao">
-                 
+
                     <div class="ConteudoInspiracao">
                         <img src="../Imagens/SloganTS.png" alt="">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla a nihil labore vero eaque,
@@ -166,25 +245,50 @@
 
 </html>
 <script>
-     const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
 
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
+    // Código responsâvel pela a Navbar
+    window.addEventListener('scroll', function () {
+        var Navbar = document.getElementById('navbar');
+        var navbarHeight = Navbar.offsetHeight;
+        var scrollPosition = window.scrollY;
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
+        if (scrollPosition >= navbarHeight) {
+            Navbar.classList.add('fixed');
+        } else {
+            Navbar.classList.remove('fixed');
+        }
     });
+    // Rolagem Suave
+    // Aqui eu estou criando uma função nde eu peço para que ela selecione o id do section
+    function scrollToSection(sectionId) {
+        // aqui eu estou criando uma variavel onde ela vai ficar responsável por indentificar no HTML o section que eu quero
+        var section = document.getElementById(sectionId);
+        // aqui eu estou pedindo que para após encontrar que ele vá até ele de forma suave
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+
+    // Código da Animação responsâvel por trocar os videos
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Controles de próxima/anterior
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Função para exibir os slides
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
 </script>
